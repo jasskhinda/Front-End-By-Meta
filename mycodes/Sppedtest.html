@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Internet Speed Test</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 50px;
+    }
+    .result {
+      font-size: 24px;
+      margin-top: 20px;
+    }
+    button {
+      padding: 10px 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Internet Speed Test</h1>
+  <button id="startTest">Start Speed Test</button>
+  <div class="result" id="result"></div>
+  <script>
+    function startSpeedTest() {
+      const fileUrl = "https://speed.hetzner.de/1MB.bin"; // Reliable file for testing
+      const fileSizeInBytes = 1000000; // Size of the file in bytes (1 MB)
+      
+      const startTime = new Date().getTime(); // Record the start time
+
+      fetch(fileUrl)
+        .then(response => response.blob())
+        .then(() => {
+          const endTime = new Date().getTime(); // Record the end time
+          const durationInSeconds = (endTime - startTime) / 1000; // Time taken in seconds
+
+          // Calculate the speed in Mbps
+          const speedMbps = ((fileSizeInBytes * 8) / (durationInSeconds * 1000000)).toFixed(2);
+
+          // Display the result
+          document.getElementById("result").innerText = `Your Internet Speed: ${speedMbps} Mbps`;
+        })
+        .catch(() => {
+          document.getElementById("result").innerText = "Error: Could not perform the speed test. Please try again.";
+        });
+    }
+
+    document.getElementById("startTest").addEventListener("click", startSpeedTest);
+  </script>
+</body>
+</html>

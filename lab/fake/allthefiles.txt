@@ -1,0 +1,5 @@
+allthefiles.txt
+dirlist.txt
+error.txt
+log.txt
+mynote.txt

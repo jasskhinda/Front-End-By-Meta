@@ -1,0 +1,2 @@
+bash: jass: command not found
+bash: jasskhinda: command not found

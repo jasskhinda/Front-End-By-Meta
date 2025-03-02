@@ -1,0 +1,5 @@
+addcontent.html
+createthefile.txt
+dir1/
+dir2/
+file3.txt

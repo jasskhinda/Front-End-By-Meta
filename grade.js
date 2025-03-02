@@ -4,7 +4,7 @@ switch (day)
 {
 case "Sunday":
     console.log ("Its Skill Development Day, So Keep Learning, day:" + day);
-    break;
+    break; 
     case "Monday":
         console.log ("Work And Study Bcz Its: " + day);
         break;
